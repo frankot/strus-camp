@@ -74,5 +74,5 @@
 
 @utility snap-section {
   scroll-snap-align: start;
-  min-height: 100svh;
+  min-height: 90svh;
 }
