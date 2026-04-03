@@ -1,0 +1,92 @@
+---
+const mailtoAddress = "kontakt@strus.net.pl";
+---
+
+<section id="contact" class="snap-section relative flex items-center bg-warm-bg px-6 lg:px-0">
+  <div class="mx-auto w-full max-w-6xl lg:ml-[clamp(4rem,12vw,10rem)]">
+    <div class="grid gap-16 lg:grid-cols-[1fr_1fr] lg:gap-20">
+      <!-- Left: Title -->
+      <div class="flex flex-col justify-center">
+        <p class="text-xs font-semibold uppercase tracking-[0.5em] text-accent-dark">Formularz zgłoszeń</p>
+        <h2 class="mt-3 font-heading text-[clamp(2rem,6vw,4.5rem)] font-800 uppercase leading-[0.9] text-warm-text">
+          Zarezerwuj<br />miejsce
+        </h2>
+        <div class="mt-6 flex items-center gap-4">
+          <span class="inline-block h-px w-12 bg-accent" aria-hidden="true"></span>
+          <p class="text-sm text-warm-muted">Wypełnij formularz, a odezwiemy się do Ciebie.</p>
+        </div>
+      </div>
+
+      <!-- Right: Form -->
+      <form
+        id="registration-form"
+        class="flex flex-col gap-5"
+        action={`mailto:${mailtoAddress}`}
+        method="POST"
+        enctype="text/plain"
+      >
+        <div class="grid gap-5 sm:grid-cols-2">
+          <label class="grid gap-2 text-sm text-warm-text">
+            <span class="text-xs font-bold uppercase tracking-[0.2em]">Imię <span class="text-accent-dark">*</span></span>
+            <input
+              type="text"
+              name="imie"
+              required
+              class="border-b-2 border-warm-surface bg-transparent px-0 py-3 text-warm-text placeholder:text-warm-muted/60 focus:border-accent focus:outline-none"
+              placeholder="Jan"
+            />
+          </label>
+
+          <label class="grid gap-2 text-sm text-warm-text">
+            <span class="text-xs font-bold uppercase tracking-[0.2em]">Nazwisko <span class="text-accent-dark">*</span></span>
+            <input
+              type="text"
+              name="nazwisko"
+              required
+              class="border-b-2 border-warm-surface bg-transparent px-0 py-3 text-warm-text placeholder:text-warm-muted/60 focus:border-accent focus:outline-none"
+              placeholder="Kowalski"
+            />
+          </label>
+        </div>
+
+        <label class="grid gap-2 text-sm text-warm-text">
+          <span class="text-xs font-bold uppercase tracking-[0.2em]">Nr telefonu <span class="text-accent-dark">*</span></span>
+          <input
+            type="tel"
+            name="telefon"
+            required
+            class="border-b-2 border-warm-surface bg-transparent px-0 py-3 text-warm-text placeholder:text-warm-muted/60 focus:border-accent focus:outline-none"
+            placeholder="+48 600 000 000"
+          />
+        </label>
+
+        <label class="grid gap-2 text-sm text-warm-text">
+          <span class="text-xs font-bold uppercase tracking-[0.2em]">Współlokator <span class="text-warm-muted">(opcjonalnie)</span></span>
+          <input
+            type="text"
+            name="wspolokator"
+            class="border-b-2 border-warm-surface bg-transparent px-0 py-3 text-warm-text placeholder:text-warm-muted/60 focus:border-accent focus:outline-none"
+            placeholder="Imię i nazwisko"
+          />
+        </label>
+
+        <label class="grid gap-2 text-sm text-warm-text">
+          <span class="text-xs font-bold uppercase tracking-[0.2em]">Dodatkowa wiadomość</span>
+          <textarea
+            name="wiadomosc"
+            rows="3"
+            class="border-b-2 border-warm-surface bg-transparent px-0 py-3 text-warm-text placeholder:text-warm-muted/60 focus:border-accent focus:outline-none"
+            placeholder="Pytania, uwagi..."
+          ></textarea>
+        </label>
+
+        <button
+          type="submit"
+          class="mt-4 cursor-pointer self-start bg-accent px-10 py-4 text-sm font-bold uppercase tracking-[0.2em] text-dark-bg transition-colors duration-200 hover:bg-accent-dark"
+        >
+          Wyślij zgłoszenie
+        </button>
+      </form>
+    </div>
+  </div>
+</section>

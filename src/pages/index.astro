@@ -1,17 +1,18 @@
 ---
-
+import Hero from "../components/Hero.astro";
+import Panorama from "../components/Panorama.astro";
+import Schedule from "../components/Schedule.astro";
+import ContactForm from "../components/ContactForm.astro";
+import Footer from "../components/Footer.astro";
+import MainLayout from "../layouts/MainLayout.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<MainLayout>
+  <main>
+    <Hero />
+    <Panorama />
+    <Schedule />
+    <ContactForm />
+  </main>
+  <Footer />
+</MainLayout>

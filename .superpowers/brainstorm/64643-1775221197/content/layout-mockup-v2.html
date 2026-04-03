@@ -1,0 +1,129 @@
+<h2>Page Layout v2 — Strus Camp</h2>
+<p class="subtitle">Updated: panorama as fixed bg with horizontal scroll cards overlay</p>
+
+<div class="mockup">
+  <div class="mockup-header">Full Page Layout v2</div>
+  <div class="mockup-body" style="padding: 0; font-family: system-ui;">
+
+    <!-- HERO — DARK -->
+    <div style="background: #1a1714; color: #f5f0e8; padding: 3rem 2rem; text-align: center;">
+      <div style="font-size: 0.6rem; letter-spacing: 0.4em; text-transform: uppercase; color: #a8a29e; margin-bottom: 1rem;">Piotr Strus zaprasza</div>
+      <div style="font-size: 2.5rem; font-weight: 900; text-transform: uppercase; letter-spacing: -0.02em; line-height: 0.95;">SPORT<br>CAMP</div>
+      <div style="width: 50px; height: 3px; background: #d97706; margin: 1rem auto;"></div>
+      <div style="font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: #a8a29e;">Tatry · 23–26 Kwietnia 2026</div>
+      <div style="margin-top: 1.5rem; display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap;">
+        <div style="background: #d97706; color: #1a1714; padding: 0.5rem 1.25rem; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;">Zapisz się</div>
+        <div style="border: 1px solid #a8a29e; color: #f5f0e8; padding: 0.5rem 1.25rem; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em;">Szczegóły</div>
+      </div>
+    </div>
+
+    <!-- PANORAMA + HORIZONTAL SCROLL OVERLAY -->
+    <div style="position: relative; background: linear-gradient(135deg, #3d6b4f 0%, #5a8a6a 25%, #7a9f85 50%, #5a8a6a 75%, #3d6b4f 100%); min-height: 220px; display: flex; flex-direction: column; justify-content: center; overflow: hidden;">
+      <!-- Simulated fixed bg label -->
+      <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 0.65rem; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 0.3em; white-space: nowrap;">Tatras Panorama · background-attachment: fixed</div>
+
+      <!-- Dark overlay for readability -->
+      <div style="position: absolute; inset: 0; background: rgba(26,23,20,0.55);"></div>
+
+      <!-- Section label -->
+      <div style="position: relative; z-index: 1; text-align: center; margin-bottom: 1rem;">
+        <div style="font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: #d97706;">Co zawiera obóz</div>
+        <div style="font-size: 1.2rem; font-weight: 800; color: #f5f0e8; margin-top: 0.25rem;">4 dni, które zapamiętasz</div>
+      </div>
+
+      <!-- Horizontal scrolling cards -->
+      <div style="position: relative; z-index: 1; display: flex; gap: 1rem; padding: 0 2rem 1rem; overflow-x: auto;">
+        <div style="min-width: 160px; background: rgba(245,240,232,0.95); backdrop-filter: blur(8px); padding: 1.25rem; border-radius: 6px; flex-shrink: 0;">
+          <div style="font-weight: 800; font-size: 0.85rem; color: #1c1917;">Treningi</div>
+          <div style="font-size: 0.7rem; color: #78716c; margin-top: 0.35rem; line-height: 1.4;">Codzienne zajęcia z elementami boksu, kick-boxingu i MMA</div>
+          <div style="width: 24px; height: 2px; background: #d97706; margin-top: 0.75rem;"></div>
+        </div>
+        <div style="min-width: 160px; background: rgba(245,240,232,0.95); backdrop-filter: blur(8px); padding: 1.25rem; border-radius: 6px; flex-shrink: 0;">
+          <div style="font-weight: 800; font-size: 0.85rem; color: #1c1917;">Góry</div>
+          <div style="font-size: 0.7rem; color: #78716c; margin-top: 0.35rem; line-height: 1.4;">Codzienne wyjścia w Tatry — szlaki dopasowane do grupy</div>
+          <div style="width: 24px; height: 2px; background: #d97706; margin-top: 0.75rem;"></div>
+        </div>
+        <div style="min-width: 160px; background: rgba(245,240,232,0.95); backdrop-filter: blur(8px); padding: 1.25rem; border-radius: 6px; flex-shrink: 0;">
+          <div style="font-weight: 800; font-size: 0.85rem; color: #1c1917;">Zakwaterowanie</div>
+          <div style="font-size: 0.7rem; color: #78716c; margin-top: 0.35rem; line-height: 1.4;">Willa Basieńka, pokoje 2-3 osobowe w centrum Zakopanego</div>
+          <div style="width: 24px; height: 2px; background: #d97706; margin-top: 0.75rem;"></div>
+        </div>
+        <div style="min-width: 160px; background: rgba(245,240,232,0.95); backdrop-filter: blur(8px); padding: 1.25rem; border-radius: 6px; flex-shrink: 0;">
+          <div style="font-weight: 800; font-size: 0.85rem; color: #1c1917;">Wyżywienie</div>
+          <div style="font-size: 0.7rem; color: #78716c; margin-top: 0.35rem; line-height: 1.4;">Pełne wyżywienie — 3 posiłki dziennie przez cały pobyt</div>
+          <div style="width: 24px; height: 2px; background: #d97706; margin-top: 0.75rem;"></div>
+        </div>
+      </div>
+      <!-- Scroll hint -->
+      <div style="position: relative; z-index: 1; text-align: center; font-size: 0.6rem; color: rgba(245,240,232,0.5); letter-spacing: 0.15em; padding-bottom: 0.75rem;">← scroll →</div>
+    </div>
+
+    <!-- SCHEDULE & PRICING — DARK -->
+    <div style="background: #1a1714; color: #f5f0e8; padding: 2.5rem 2rem;">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+        <div>
+          <div style="font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: #d97706; margin-bottom: 0.5rem;">Plan dnia</div>
+          <div style="font-size: 0.75rem; line-height: 2;">
+            <div style="display: flex; gap: 0.75rem;"><span style="color: #d97706; font-weight: 700;">07:00</span> Rozruch</div>
+            <div style="display: flex; gap: 0.75rem;"><span style="color: #d97706; font-weight: 700;">08:00</span> Śniadanie</div>
+            <div style="display: flex; gap: 0.75rem;"><span style="color: #d97706; font-weight: 700;">09:30</span> Wyjście w góry</div>
+            <div style="display: flex; gap: 0.75rem;"><span style="color: #d97706; font-weight: 700;">13:00</span> Obiad</div>
+            <div style="display: flex; gap: 0.75rem;"><span style="color: #d97706; font-weight: 700;">15:00</span> Trening MMA</div>
+            <div style="display: flex; gap: 0.75rem;"><span style="color: #d97706; font-weight: 700;">19:00</span> Kolacja</div>
+          </div>
+        </div>
+        <div>
+          <div style="font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: #d97706; margin-bottom: 0.5rem;">Cena</div>
+          <div style="background: #262220; padding: 1.25rem; border-radius: 4px; border-left: 3px solid #d97706;">
+            <div style="font-size: 1.5rem; font-weight: 900;">1399 zł</div>
+            <div style="font-size: 0.65rem; color: #a8a29e; margin-top: 0.25rem;">Cena promocyjna · zaliczka 700 zł do 12.04</div>
+          </div>
+          <div style="background: #262220; padding: 1rem; border-radius: 4px; margin-top: 0.75rem; opacity: 0.7;">
+            <div style="font-size: 1.1rem; font-weight: 700;">1500 zł</div>
+            <div style="font-size: 0.65rem; color: #a8a29e; margin-top: 0.25rem;">Cena regularna</div>
+          </div>
+          <div style="background: #262220; padding: 1rem; border-radius: 4px; margin-top: 1rem; font-size: 0.7rem;">
+            <div style="color: #d97706; font-weight: 700; margin-bottom: 0.25rem;">Dane do przelewu</div>
+            <div style="color: #a8a29e; line-height: 1.6;">Strus Company sp. z o.o.<br>11 1111 11111 1111 1111<br>Tytuł: Imię nazwisko - oboz mma</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- REGISTRATION FORM — WARM -->
+    <div style="background: #f5f0e8; color: #1c1917; padding: 2.5rem 2rem;">
+      <div style="max-width: 400px; margin: 0 auto;">
+        <div style="font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: #b45309; margin-bottom: 0.5rem; text-align: center;">Formularz zgłoszeń</div>
+        <div style="font-size: 1.3rem; font-weight: 800; margin-bottom: 1.5rem; text-align: center;">Zarezerwuj miejsce</div>
+        <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+          <div style="background: white; border: 1px solid #d6cfc4; padding: 0.6rem 0.75rem; font-size: 0.75rem; color: #78716c; border-radius: 3px;">Imię</div>
+          <div style="background: white; border: 1px solid #d6cfc4; padding: 0.6rem 0.75rem; font-size: 0.75rem; color: #78716c; border-radius: 3px;">Nazwisko</div>
+          <div style="background: white; border: 1px solid #d6cfc4; padding: 0.6rem 0.75rem; font-size: 0.75rem; color: #78716c; border-radius: 3px;">Nr telefonu</div>
+          <div style="background: white; border: 1px solid #d6cfc4; padding: 0.6rem 0.75rem; font-size: 0.75rem; color: #78716c; border-radius: 3px;">Współlokator (opcjonalnie)</div>
+          <div style="background: white; border: 1px solid #d6cfc4; padding: 0.6rem 0.75rem; font-size: 0.75rem; color: #78716c; border-radius: 3px; min-height: 50px;">Dodatkowa wiadomość</div>
+          <div style="background: #d97706; color: #1a1714; padding: 0.75rem; text-align: center; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; border-radius: 3px; margin-top: 0.5rem;">Wyślij zgłoszenie</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTACT + FOOTER — DARK -->
+    <div style="background: #1a1714; color: #f5f0e8; padding: 2rem; text-align: center;">
+      <div style="font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: #d97706; margin-bottom: 0.5rem;">Kontakt</div>
+      <div style="font-size: 1rem; font-weight: 700;">+48 608 052 555</div>
+      <div style="font-size: 0.7rem; color: #a8a29e; margin-top: 0.5rem;">Strus Company sp. z o.o.</div>
+      <div style="width: 40px; height: 2px; background: #262220; margin: 1.5rem auto 0.75rem;"></div>
+      <div style="font-size: 0.6rem; color: #a8a29e;">© 2026 Sport Camp Piotr Strus</div>
+    </div>
+
+  </div>
+</div>
+
+<div class="section" style="margin-top: 1.5rem;">
+  <h3>Key Design Decisions</h3>
+  <ul style="font-size: 0.85rem; line-height: 1.8;">
+    <li><strong>Panorama section:</strong> Tatras photo with <code>background-attachment: fixed</code> (parallax). Semi-transparent dark overlay for card readability.</li>
+    <li><strong>Feature cards:</strong> Frosted glass effect (<code>backdrop-filter: blur</code>) on warm-toned cards, horizontally scrollable over the fixed mountain background.</li>
+    <li><strong>On desktop:</strong> Cards can be wider and all visible. Horizontal scroll primarily for mobile where space is limited.</li>
+    <li><strong>No navbar:</strong> Hero CTA "Szczegóły" smooth-scrolls down. "Zapisz się" jumps to form.</li>
+  </ul>
+</div>
