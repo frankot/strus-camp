@@ -3,9 +3,17 @@ import "../styles/global.css";
 
 interface Props {
   title?: string;
+  description?: string;
 }
 
-const { title = "Sport Camp Piotr Strus — Obóz Sportowy Tatry 2026" } = Astro.props;
+const {
+  title = "Sport Camp Piotr Strus — Obóz Sportowy Tatry 2026",
+  description = "Obóz sportowy z Piotrem Strusem w Tatrach. Treningi MMA, górskie wycieczki, pełne wyżywienie. 23-26 kwietnia 2026, Zakopane.",
+} = Astro.props;
+
+const siteUrl = Astro.site ?? new URL("https://strus-camp.pages.dev");
+const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
+const ogImageUrl = new URL("/bg.webp", siteUrl).toString();
 ---
 
 <!doctype html>
@@ -13,19 +21,44 @@ const { title = "Sport Camp Piotr Strus — Obóz Sportowy Tatry 2026" } = Astro
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Obóz sportowy z Piotrem Strusem w Tatrach. Treningi MMA, górskie wycieczki, pełne wyżywienie. 23–26 kwietnia 2026, Zakopane." />
+    <meta name="description" content={description} />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+    <meta name="theme-color" content="#0e0c0a" />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pl_PL" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta
+      property="og:image:alt"
+      content="Sport Camp Piotr Strus - oboz sportowy w Tatrach"
+    />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
     <meta name="generator" content={Astro.generator} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Barlow:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <title>{title}</title>
   </head>
   <body class="bg-dark-bg text-dark-text font-body">
     <!-- The Spine — vertical orange dotted line -->
-    <div class="pointer-events-none fixed top-0 bottom-0 z-50 hidden lg:block" style="left: clamp(2rem, 8vw, 6rem);">
-      <div class="h-full w-px border-l-[2px] border border-accent opacity-40"></div>
+    <div
+      class="pointer-events-none fixed top-0 bottom-0 z-50 hidden lg:block"
+      style="left: clamp(2rem, 8vw, 6rem);"
+    >
+      <div class="h-full w-px border-l-[2px] border border-accent opacity-40">
+      </div>
     </div>
 
     <slot />

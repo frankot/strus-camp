@@ -1,19 +1,31 @@
 ---
-const mailtoAddress = "kontakt@strus.net.pl";
+const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
 ---
 
-<section id="contact" class="snap-section relative flex items-center bg-warm-bg px-6 lg:px-0">
+<section
+  id="contact"
+  class="snap-section relative flex items-center bg-warm-bg px-6 lg:px-0"
+>
   <div class="mx-auto w-full max-w-6xl lg:ml-[clamp(4rem,12vw,10rem)]">
     <div class="grid gap-16 lg:grid-cols-[1fr_1fr] lg:gap-20">
       <!-- Left: Title -->
       <div class="flex flex-col justify-center">
-        <p class="text-xs font-semibold uppercase tracking-[0.5em] text-accent-dark">Formularz zgłoszeń</p>
-        <h2 class="mt-3 font-heading text-[clamp(2rem,6vw,4.5rem)] font-800 uppercase leading-[0.9] text-warm-text">
+        <p
+          class="text-xs font-semibold uppercase tracking-[0.5em] text-accent-dark"
+        >
+          Formularz zgłoszeń
+        </p>
+        <h2
+          class="mt-3 font-heading text-[clamp(2rem,6vw,4.5rem)] font-800 uppercase leading-[0.9] text-warm-text"
+        >
           Zarezerwuj<br />miejsce
         </h2>
         <div class="mt-6 flex items-center gap-4">
-          <span class="inline-block h-px w-12 bg-accent" aria-hidden="true"></span>
-          <p class="text-sm text-warm-muted">Wypełnij formularz, a odezwiemy się do Ciebie.</p>
+          <span class="inline-block h-px w-12 bg-accent" aria-hidden="true"
+          ></span>
+          <p class="text-sm text-warm-muted">
+            Wypełnij formularz, a odezwiemy się do Ciebie.
+          </p>
         </div>
       </div>
 
@@ -21,13 +33,23 @@ const mailtoAddress = "kontakt@strus.net.pl";
       <form
         id="registration-form"
         class="flex flex-col gap-5"
-        action={`mailto:${mailtoAddress}`}
+        action="/api/register"
         method="POST"
-        enctype="text/plain"
       >
+        <input
+          type="text"
+          name="company"
+          tabindex="-1"
+          autocomplete="off"
+          class="hidden"
+          aria-hidden="true"
+        />
+
         <div class="grid gap-5 sm:grid-cols-2">
           <label class="grid gap-2 text-sm text-warm-text">
-            <span class="text-xs font-bold uppercase tracking-[0.2em]">Imię <span class="text-accent-dark">*</span></span>
+            <span class="text-xs font-bold uppercase tracking-[0.2em]"
+              >Imię <span class="text-accent-dark">*</span></span
+            >
             <input
               type="text"
               name="imie"
@@ -38,7 +60,9 @@ const mailtoAddress = "kontakt@strus.net.pl";
           </label>
 
           <label class="grid gap-2 text-sm text-warm-text">
-            <span class="text-xs font-bold uppercase tracking-[0.2em]">Nazwisko <span class="text-accent-dark">*</span></span>
+            <span class="text-xs font-bold uppercase tracking-[0.2em]"
+              >Nazwisko <span class="text-accent-dark">*</span></span
+            >
             <input
               type="text"
               name="nazwisko"
@@ -50,7 +74,9 @@ const mailtoAddress = "kontakt@strus.net.pl";
         </div>
 
         <label class="grid gap-2 text-sm text-warm-text">
-          <span class="text-xs font-bold uppercase tracking-[0.2em]">Nr telefonu <span class="text-accent-dark">*</span></span>
+          <span class="text-xs font-bold uppercase tracking-[0.2em]"
+            >Nr telefonu <span class="text-accent-dark">*</span></span
+          >
           <input
             type="tel"
             name="telefon"
@@ -61,7 +87,23 @@ const mailtoAddress = "kontakt@strus.net.pl";
         </label>
 
         <label class="grid gap-2 text-sm text-warm-text">
-          <span class="text-xs font-bold uppercase tracking-[0.2em]">Współlokator <span class="text-warm-muted">(opcjonalnie)</span></span>
+          <span class="text-xs font-bold uppercase tracking-[0.2em]"
+            >E-mail <span class="text-accent-dark">*</span></span
+          >
+          <input
+            type="email"
+            name="email"
+            required
+            class="border-b-2 border-warm-surface bg-transparent px-0 py-3 text-warm-text placeholder:text-warm-muted/60 focus:border-accent focus:outline-none"
+            placeholder="jan@example.com"
+          />
+        </label>
+
+        <label class="grid gap-2 text-sm text-warm-text">
+          <span class="text-xs font-bold uppercase tracking-[0.2em]"
+            >Współlokator <span class="text-warm-muted">(opcjonalnie)</span
+            ></span
+          >
           <input
             type="text"
             name="wspolokator"
@@ -71,14 +113,30 @@ const mailtoAddress = "kontakt@strus.net.pl";
         </label>
 
         <label class="grid gap-2 text-sm text-warm-text">
-          <span class="text-xs font-bold uppercase tracking-[0.2em]">Dodatkowa wiadomość</span>
+          <span class="text-xs font-bold uppercase tracking-[0.2em]"
+            >Dodatkowa wiadomość</span
+          >
           <textarea
             name="wiadomosc"
             rows="3"
             class="border-b-2 border-warm-surface bg-transparent px-0 py-3 text-warm-text placeholder:text-warm-muted/60 focus:border-accent focus:outline-none"
-            placeholder="Pytania, uwagi..."
-          ></textarea>
+            placeholder="Pytania, uwagi..."></textarea>
         </label>
+
+        {
+          turnstileSiteKey && (
+            <div>
+              <div class="cf-turnstile" data-sitekey={turnstileSiteKey} />
+              <script
+                src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+                async
+                defer
+              />
+            </div>
+          )
+        }
+
+        <p id="form-feedback" class="hidden text-sm font-medium"></p>
 
         <button
           type="submit"
@@ -87,6 +145,25 @@ const mailtoAddress = "kontakt@strus.net.pl";
           Wyślij zgłoszenie
         </button>
       </form>
+
+      <script is:inline>
+        const params = new URLSearchParams(window.location.search);
+        const status = params.get("form");
+        const feedback = document.getElementById("form-feedback");
+
+        if (feedback && status === "success") {
+          feedback.textContent = "Dziękujemy. Zgłoszenie zostało wysłane.";
+          feedback.classList.remove("hidden");
+          feedback.classList.add("text-emerald-700");
+        }
+
+        if (feedback && status === "error") {
+          feedback.textContent =
+            "Nie udało się wysłać zgłoszenia. Spróbuj ponownie za chwilę.";
+          feedback.classList.remove("hidden");
+          feedback.classList.add("text-red-700");
+        }
+      </script>
     </div>
   </div>
 </section>

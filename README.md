@@ -1,43 +1,69 @@
-# Astro Starter Kit: Minimal
+# Strus Camp Landing Page
+
+Static Astro landing page hosted on Cloudflare Pages.
+
+## Local development
 
 ```sh
-npm create astro@latest -- --template minimal
+npm install
+npm run dev
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Production build
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+```sh
+npm run build
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Cloudflare Pages setup
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+Build command:
 
-Any static assets, like images, can be placed in the `public/` directory.
+```sh
+npm run build
+```
 
-## 🧞 Commands
+Build output directory:
 
-All commands are run from the root of the project, from a terminal:
+```txt
+dist
+```
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+Set Node.js compatibility/version to 22 in Cloudflare Pages.
 
-## 👀 Want to learn more?
+## SEO config
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Set `SITE_URL` in Cloudflare Pages environment variables to your final domain.
+
+Example:
+
+```txt
+SITE_URL=https://camp.twojadomena.pl
+```
+
+The sitemap is generated automatically from `SITE_URL`.
+
+## Contact form email delivery
+
+Form posts to a Cloudflare Pages Function at `/api/register` and sends email through Resend.
+
+Required Cloudflare env variables:
+
+```txt
+RESEND_API_KEY=...
+CONTACT_TO_EMAIL=client@example.com
+```
+
+Optional:
+
+```txt
+CONTACT_FROM_EMAIL=noreply@yourdomain.com
+TURNSTILE_SECRET=...
+PUBLIC_TURNSTILE_SITE_KEY=...
+```
+
+Notes:
+
+- `CONTACT_TO_EMAIL` is where client receives submissions.
+- If `TURNSTILE_SECRET` and `PUBLIC_TURNSTILE_SITE_KEY` are set, bot protection is enabled.
+- If no `CONTACT_FROM_EMAIL` is set, fallback sender is `onboarding@resend.dev`.

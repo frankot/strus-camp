@@ -1,0 +1,11 @@
+# Copy to .dev.vars for local Pages Functions testing
+RESEND_API_KEY=
+CONTACT_TO_EMAIL=client@example.com
+CONTACT_FROM_EMAIL=onboarding@resend.dev
+
+# Optional anti-bot
+TURNSTILE_SECRET=
+PUBLIC_TURNSTILE_SITE_KEY=
+
+# Astro canonical/sitemap base URL
+SITE_URL=https://strus-camp.pages.dev
