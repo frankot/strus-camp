@@ -1,7 +1,17 @@
-# Copy to .dev.vars for local Pages Functions testing
-RESEND_API_KEY=
+# Copy to .dev.vars for local testing with `npm run preview:pages`
+
+# SMTP account used to send mail (required)
+SMTP_HOST=smtp.example.com
+SMTP_USER=noreply@twojadomena.pl
+SMTP_PASS=
+# 465 = implicit TLS (default), 587 = STARTTLS. Port 25 is blocked by Cloudflare.
+SMTP_PORT=465
+# Optional override; STARTTLS is used automatically on port 587.
+SMTP_STARTTLS=
+
+# Addresses (required)
 CONTACT_TO_EMAIL=client@example.com
-CONTACT_FROM_EMAIL=onboarding@resend.dev
+CONTACT_FROM_EMAIL=noreply@twojadomena.pl
 
 # Optional anti-bot
 TURNSTILE_SECRET=
