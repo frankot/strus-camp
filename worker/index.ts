@@ -87,21 +87,21 @@ const verifyTurnstile = async (
   return Boolean(result.success);
 };
 
-function buildConfirmationText(firstName: string): string {
+function buildConfirmationText(firstName: string, lastName: string): string {
   return [
     `Cześć ${firstName}!`,
     `Dziękujemy za zgłoszenie na Strus Camp 2026!`,
     `Cieszymy się, że dołączasz do naszego obozu sportowego – to będzie intensywny i pełen energii czas!`,
     ``,
-    `📅 Termin obozu: 23–26 kwietnia 2026 (UWAGA! zakwaterowanie od 22.04.2026 godz 17:00 Wymeldowanie 26.04.2026 po obiedzie)`,
+    `📅 Termin obozu: 7–11 października 2026 (pełne wyżywienie od kolacji 07.10.2026 do śniadania 11.10.2026)`,
     `📍 Miejsce: Willa Basieńka, ul. Brzozowskiego 24a 34-500 Zakopane`,
-    `💰 Wpłata: prosimy o dokonanie płatności 700 zł na poniższe konto do 21 kwietnia 2026`,
+    `💰 Cena: 1399 zł (cena promocyjna) / 1599 zł (cena regularna)`,
+    `💰 Zaliczka: prosimy o wpłatę 800 zł na poniższe konto do 30 września 2026 – to warunek ceny promocyjnej`,
     ``,
     `Dane do przelewu:`,
-    `PIOTR STRUS`,
-    `nr konta: 96 1140 2004 0000 3502 4838 1052`,
-    `Blik: +48 608 052 555`,
-    `Tytuł: ${firstName} - obóz 23-26.04`,
+    `STRUS COMPANY SP. Z O.O.`,
+    `nr konta: 34 1090 1014 0000 0001 6173 9740`,
+    `Tytuł: ${firstName} ${lastName} - oboz mma - 7-11.10.2026`,
     ``,
     `📞 W razie pytań jestem do dyspozycji: +48 608 052 555`,
     ``,
@@ -220,7 +220,7 @@ async function handleRegister(request: Request, env: Env): Promise<Response> {
       `Nazwisko: ${lastName}`,
       `Telefon: ${phone}`,
       `Email: ${email}`,
-      `Os. polecajaca: ${roommate || "brak"}`,
+      `Wspollokator: ${roommate || "brak"}`,
       "",
       "Wiadomosc:",
       message || "brak",
@@ -242,7 +242,7 @@ async function handleRegister(request: Request, env: Env): Promise<Response> {
       from: env.CONTACT_FROM_EMAIL,
       to: email,
       subject: "Potwierdzenie zgłoszenia – Strus Camp 2026",
-      text: buildConfirmationText(firstName),
+      text: buildConfirmationText(firstName, lastName),
     });
   } catch (error) {
     console.error(`Could not send the confirmation to ${email}`, error);
